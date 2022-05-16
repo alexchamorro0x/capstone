@@ -1,4 +1,4 @@
-## Copyright 2022, MAVERICKS BALITAAN
+## Copyright 2022, MAVERICKS BALITAAN & JAUHARI ALAFI
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this API-BASED WEB APP and associated documentation files, to deal in the API-BASED WEB APP without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the API-BASED WEB APP, and to permit persons to whom the API-BASED WEB APP is furnished to do so, subject to the following conditions:

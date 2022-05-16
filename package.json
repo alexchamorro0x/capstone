@@ -15,7 +15,7 @@
     "url": "git+https://github.com/mavericks-db/capstone02.git"
   },
   "keywords": [],
-  "author": "Mavericks Balitaan",
+  "authors": ["Mavericks Balitaan", "Jauhari Alafi"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mavericks-db/capstone02/issues"

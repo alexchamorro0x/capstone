@@ -95,7 +95,7 @@ This app is deployed in the GitHub Pages for easy viewing upon merged on the mai
 Please find the link in the Live Demo section.
 
 
-## Author
+## Authors
 
 👤 **Mavericks Balitaan** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
 
@@ -108,6 +108,16 @@ Please find the link in the Live Demo section.
 - LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-mavericks--db-white?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://www.linkedin.com/in/mavericks-db/)
 
 - Gmail: [![Gmail Badge](https://img.shields.io/badge/-@balitaanmavericks-white?logo=Gmail&logoColor=EA4335&style=plastic)](mailto:balitaanmavericks@gmail.com)
+
+👤 **Jauhari Alafi** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
+
+- GitHub: [![GitHub Badge](https://img.shields.io/badge/-JauJau088-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/JauJau088)
+
+- Twitter: [![Twitter Badge](https://img.shields.io/badge/-jaujauj-white?logo=Twitter&logoColor=1DA1F2&style=plastic)](https://twitter.com/jaujauj)
+
+- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-jauhari--alafi-white?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://www.linkedin.com/in/jauhari-alafi/)
+
+- Gmail: [![Gmail Badge](https://img.shields.io/badge/-@jauhari.alafi-white?logo=Gmail&logoColor=EA4335&style=plastic)](mailto:jauhari.alafi@gmail.com)
 
 ## 🤝 Contributing
 
