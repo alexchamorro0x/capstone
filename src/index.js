@@ -10,19 +10,12 @@ const searchCloseBtn = document.querySelector('#search-close-btn');
 const menuIcon = document.querySelector('#menu-icon');
 const header = document.querySelector('header');
 
-searchIcon.onclick = () => {
-  searchBarContainer.classList.remove('hide');
-
-  // Add event listener
-  searchCloseBtn.onclick = () => {
-    searchBarContainer.classList.add('hide');
-  };
-};
-
 // Search Bar For Desktop
 if (window.innerWidth > 768) {
   searchBarContainer.classList.remove('hide');
+  menuIcon.classList.remove('hide');
   const menuText = document.createElement('span');
+  menuText.style.fontSize = '1.25rem';
   menuText.textContent += 'Menu';
   menuIcon.append(menuText);
   searchCloseBtn.classList.add('hide');
@@ -115,14 +108,23 @@ const createElement = async (requestURL) => {
     });
 };
 
-const searchBtn = document.querySelector('#search-btn');
 const searchInput = document.querySelector('#search-input');
 
 // Search Event - Mobile Version
-searchBtn.onclick = () => {
+searchIcon.onclick = () => {
+  searchBarContainer.classList.remove('hide');
+
+  // Add event listener
+  searchCloseBtn.onclick = () => {
+    searchBarContainer.classList.add('hide');
+  };
+
   if (searchInput.value) {
     query = searchInput.value;
     searchInput.value = '';
+  }
+  if (!searchInput.value) {
+    window.onload();
   }
   createElement(`${rootUrl}${query}`);
   updateLikes();
@@ -136,6 +138,9 @@ if (window.innerWidth > 768) {
       query = searchInput.value;
       searchInput.value = '';
     }
+    if (!searchInput.value) {
+      window.onload();
+    }
     createElement(`${rootUrl}${query}`);
     updateLikes();
   };
@@ -148,6 +153,9 @@ window.addEventListener('keypress', (e) => {
     searchInput.value = '';
     createElement(`${rootUrl}${query}`);
     updateLikes();
+  }
+  if (!searchInput.value) {
+    window.onload();
   }
 });
 
@@ -215,7 +223,7 @@ window.onload = () => {
 };
 
 // // Homepage Link
-const h2 = document.querySelector('h2');
-h2.addEventListener('click', () => {
+const h1 = document.querySelector('h1');
+h1.addEventListener('click', () => {
   window.location.reload();
 });
