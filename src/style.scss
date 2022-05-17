@@ -36,7 +36,6 @@ html {
 
 body {
   background-color: $color-black;
-  box-sizing: inherit;
 }
 
 button {
@@ -51,6 +50,15 @@ button {
 
 .hide {
   display: none !important;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 // Header
@@ -238,6 +246,36 @@ header {
   }
 }
 
+// Popup
+.popup-container {
+  position: absolute;
+  left: auto;
+  background-color: $color-grey-light2;
+  max-width: 80vw;
+  padding: 3rem;
+  border-radius: 1rem;
+
+  .popup-close-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .popup-close {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  .popup-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+// Footer
 footer {
   display: block;
   width: 100%;

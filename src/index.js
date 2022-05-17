@@ -1,6 +1,7 @@
 import './style.scss';
 import getData from './modules/tvmaze.js';
 import { getLikes, postLike } from './modules/involvement.js';
+import { showPopup } from './modules/popup.js';
 // import addElem from './modules/add-elem.js';
 
 // Search button
@@ -227,6 +228,13 @@ const createElementForShows = async (requestURL) => {
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;
+
+        // Pop-up trigger event
+        const showData = el;
+        div.addEventListener('click', (e) => {
+          // console.log(showData);
+          showPopup(showData, e.target.getBoundingClientRect());
+        });
       });
     });
 };
@@ -237,7 +245,7 @@ window.onload = () => {
   setTimeout(updateLikes, 1000);
 };
 
-// // Homepage Link
+// Homepage Link
 const h1 = document.querySelector('h1');
 h1.addEventListener('click', () => {
   window.location.reload();
