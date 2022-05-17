@@ -26,22 +26,27 @@ const showPopup = (_showData, _domRect) => {
     <div class="popup-close-container"></div>
     <div class="flex-column">
       <h2>${_showData.name}</h2>
-      <div class="flex-row">
-        <span>${_showData.status}</span>
-        <span>&middot;</span>
+      <div class="sub-title flex-row">
         <span>${_showData.premiered.substring(0, 4)}</span>
         <span>&middot;</span>
-        <div>
+        <span>${_showData.status}</span>
+        <span>&middot;</span>
+        <div class="flex-row">
           <span class="material-icons-round icons">star</span>
-          <span>${_showData.rating.average} / 10</span>
+          <span class="rating">${_showData.rating.average}</span>
+          <span>/10</span>
         </div>
       </div>
     </div>
     <img class="popup-img" src="${_showData.image.original}" alt="show thumbnail">
-    <div class="flex-row">
-      ${_showData.genres.forEach((genre) => `<div class="tag-genre">${genre}</div>`)}
-    </div>
+    <div class="genres flex-row"></div>
     <div>${_showData.summary}</div>`;
+
+  // Generate genres
+  const genres = document.querySelector('.genres');
+  _showData.genres.forEach((genre) => {
+    genres.innerHTML += `<div class="tag-genre">${genre}</div>`;
+  });
 
   // Close button event listener
   const popupCloseContainer = document.querySelector('.popup-close-container');

@@ -16,6 +16,7 @@ $color-grey-light2: #2c2c2c;
 $color-yellow: #f5c518;
 $color-blue: #5799ef;
 $color-white: white;
+$color-white-dark: #aeaeae;
 
 // Global
 *,
@@ -54,6 +55,7 @@ button {
 
 .flex-row {
   display: flex;
+  align-items: center;
 }
 
 .flex-column {
@@ -250,10 +252,11 @@ header {
 .popup-container {
   position: absolute;
   left: auto;
-  background-color: $color-grey-light2;
+  background-color: $color-grey-light1;
   max-width: 80vw;
-  padding: 3rem;
+  padding: 2rem 3rem 3rem 3rem;
   border-radius: 1rem;
+  font-size: 0.8rem;
 
   .popup-close-container {
     width: 100%;
@@ -268,10 +271,42 @@ header {
     border: none;
   }
 
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .sub-title {
+    gap: 0.4em;
+
+    .icons {
+      font-size: 0.8rem;
+      color: $color-yellow;
+    }
+
+    .rating {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-left: 3px;
+    }
+  }
+
   .popup-img {
     width: 100%;
     height: 400px;
     object-fit: cover;
+    margin: 10px 0;
+  }
+
+  .genres {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .tag-genre {
+    border: 2px solid $color-white-dark;
+    border-radius: 20px;
+    padding: 0.5em 0.7em;
   }
 }
 
