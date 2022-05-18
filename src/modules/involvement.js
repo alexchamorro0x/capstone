@@ -1,7 +1,8 @@
+const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+const appID = 'OQCl5yEXf3GxJhpasEHV';
+
 const postLike = async (itemID) => {
-  const appID = 'OQCl5yEXf3GxJhpasEHV';
-  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes`;
-  const response = await fetch(url, {
+  const response = await fetch(`${url}${appID}/likes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,10 +14,36 @@ const postLike = async (itemID) => {
 };
 
 const getLikes = async () => {
-  const appID = 'OQCl5yEXf3GxJhpasEHV';
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes`);
+  const response = await fetch(`${url}${appID}/likes`);
   const likes = await response.json();
   return likes;
 };
 
-export { getLikes, postLike };
+const postComment = async (_id, _name, _comment) => {
+  const response = await fetch(`${url}${appID}/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: _id,
+      username: _name,
+      comment: _comment,
+    }),
+  });
+  const post = await response.text();
+  return post;
+};
+
+const getComments = async (_id) => {
+  const response = await fetch(`${url}${appID}/comments?item_id=${_id}`);
+  const comments = await response.json();
+  return comments;
+};
+
+export {
+  postLike,
+  getLikes,
+  postComment,
+  getComments,
+};
