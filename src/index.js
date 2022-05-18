@@ -1,6 +1,7 @@
 import './style.scss';
 import getData from './modules/tvmaze.js';
 import { getLikes, postLike } from './modules/involvement.js';
+import { showPopup, clearPopups } from './modules/popup.js';
 // import addElem from './modules/add-elem.js';
 
 // Search button
@@ -227,6 +228,15 @@ const createElementForShows = async (requestURL) => {
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;
+
+        // Pop-up trigger event
+        const showData = el;
+        div.addEventListener('click', (e) => {
+          if (!e.target.matches('.starBorder')) {
+            // console.log(e.target);
+            showPopup(showData, e.target.closest('.cardItem').getBoundingClientRect());
+          }
+        });
       });
     });
 };
@@ -237,8 +247,16 @@ window.onload = () => {
   setTimeout(updateLikes, 1000);
 };
 
-// // Homepage Link
+// Homepage Link
 const h1 = document.querySelector('h1');
 h1.addEventListener('click', () => {
   window.location.reload();
+});
+
+// Event listener on the document
+// If the click is not on the cardItem and not on the popup-container, clear the popups
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.cardItem') && !e.target.closest('.popup-container')) {
+    clearPopups();
+  }
 });
