@@ -2,7 +2,6 @@ import './style.scss';
 import getData from './modules/tvmaze.js';
 import { getLikes, postLike } from './modules/involvement.js';
 import { showPopup, clearPopups } from './modules/popup.js';
-// import addElem from './modules/add-elem.js';
 
 // Search button
 const searchIcon = document.querySelector('#search-btn');
@@ -12,6 +11,10 @@ const menuIcon = document.querySelector('#menu-icon');
 const header = document.querySelector('header');
 
 // Search Bar For Desktop
+window.onresize = () => {
+  window.location.reload();
+};
+
 if (window.innerWidth > 768) {
   searchBarContainer.classList.remove('hide');
   menuIcon.classList.remove('hide');
@@ -65,15 +68,15 @@ const createElement = async (requestURL) => {
         const divImg = document.createElement('div');
         divImg.classList.add('cardImg');
         divImg.style.backgroundImage = `url(${el.image.original})`;
-        const h1 = document.createElement('h1');
-        h1.classList.add('cardName');
-        h1.textContent = `S${el.season}E${el.number} ${el.name}`;
+        const h2 = document.createElement('h2');
+        h2.classList.add('cardName');
+        h2.textContent = `S${el.season}E${el.number} ${el.name}`;
         const details = document.createElement('p');
         details.classList.add('cardDetails');
         details.innerHTML = `Plot Summary: <br>${el.summary}`;
-        const h2 = document.createElement('h2');
-        h2.classList.add('cardRuntime');
-        h2.textContent = `Runtime: ${el.runtime} mins Rating: ${el.rating.average}`;
+        const h3 = document.createElement('h3');
+        h3.classList.add('cardRuntime');
+        h3.textContent = `Runtime: ${el.runtime} mins Rating: ${el.rating.average}`;
 
         const starContainer = document.createElement('div');
         starContainer.classList.add('starContainer');
@@ -108,7 +111,7 @@ const createElement = async (requestURL) => {
         cBtn.classList.add('commentBtn');
         cBtn.textContent = 'Comments';
         starContainer.append(starRate, starCount, starBorder);
-        div.append(divImg, starContainer, h1, h2, details, cBtn);
+        div.append(divImg, starContainer, h2, h3, details, cBtn);
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;
@@ -187,9 +190,9 @@ const createElementForShows = async (requestURL) => {
         const divImg = document.createElement('div');
         divImg.classList.add('cardImg');
         divImg.style.backgroundImage = `url(${el.image.original})`;
-        const h1 = document.createElement('h1');
-        h1.classList.add('cardName');
-        h1.textContent = el.name;
+        const h2 = document.createElement('h2');
+        h2.classList.add('cardName');
+        h2.textContent = el.name;
 
         const starContainer = document.createElement('div');
         starContainer.classList.add('starContainer');
@@ -224,7 +227,7 @@ const createElementForShows = async (requestURL) => {
         cBtn.classList.add('commentBtn');
         cBtn.textContent = 'Comments';
         starContainer.append(starRate, starCount, starBorder);
-        div.append(divImg, starContainer, h1, cBtn);
+        div.append(divImg, starContainer, h2, cBtn);
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;

@@ -44,6 +44,8 @@ html {
 
 body {
   background-color: $color-black;
+
+  @include margin-sides(auto);
 }
 
 button {
@@ -82,13 +84,13 @@ header {
   background-image: url('./assets/bg_texture.png');
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: $color-yellow;
     cursor: pointer;
   }
 
   h2 {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     margin-left: auto;
   }
 
@@ -102,6 +104,15 @@ header {
     &:hover {
       background-color: $color-grey-light2;
     }
+  }
+}
+
+h3 {
+  font-size: 1rem;
+  text-align: center;
+
+  &:focus {
+    text-decoration: underline;
   }
 }
 
@@ -137,14 +148,15 @@ header {
 .cards {
   margin-top: 1rem;
   padding-bottom: 4rem;
-  display: grid;
-  grid-template-columns: auto;
-  place-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: normal;
 
   @include margin-sides(auto);
 
   z-index: 1;
-  // overflow-y: scroll;
 
   .cardItem {
     margin-bottom: 2rem;
@@ -476,8 +488,11 @@ footer {
   }
 
   .cards {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 2rem;
 
     .cardItem {
       .cardName {
