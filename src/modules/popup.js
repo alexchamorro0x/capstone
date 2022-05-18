@@ -16,7 +16,8 @@ const updateComments = async (_id, _container) => {
   comments = Array.isArray(comments) ? comments : [];
 
   // Add comments section to the container
-  _container.innerHTML = `
+  const newContent = document.createElement('div');
+  newContent.innerHTML = `
     <div class="comments-current flex-column">
       <h3>Reviews (${comments.length})</h3>
       <div class="comments-all flex-column"></div>
@@ -33,6 +34,9 @@ const updateComments = async (_id, _container) => {
         <button type="submit">Submit</button>
       </form>
     </div>`;
+
+  _container.innerHTML = '';
+  _container.appendChild(newContent);
 
   // Generate current comments
   const commentsAll = document.querySelector('.comments-all');
@@ -57,6 +61,7 @@ const updateComments = async (_id, _container) => {
     postComment(_id, inputName.value, inputInsight.value);
 
     form.reset();
+    setTimeout(() => updateComments(_id, _container), 1000);
   };
 };
 
@@ -91,7 +96,7 @@ const showPopup = (_showData, _domRect) => {
     <div class="genres flex-row"></div>
     <div class="summary">${_showData.summary}</div>
     <hr>
-    <div class="comments-container flex-column"></div>`;
+    <div class="comments-container"></div>`;
 
   // Generate genres
   const genres = document.querySelector('.genres');

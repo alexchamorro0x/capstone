@@ -343,7 +343,11 @@ header {
   }
 
   .comments-container {
-    gap: 25px;
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
 
     .comments-current {
       gap: 15px;
