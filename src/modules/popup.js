@@ -89,7 +89,7 @@ const showPopup = (_showData, _domRect) => {
     </div>
     <img class="popup-img" src="${_showData.image.original}" alt="show thumbnail">
     <div class="genres flex-row"></div>
-    <div>${_showData.summary}</div>
+    <div class="summary">${_showData.summary}</div>
     <hr>
     <div class="comments-container flex-column"></div>`;
 

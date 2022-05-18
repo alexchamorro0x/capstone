@@ -260,10 +260,10 @@ header {
   position: absolute;
   left: auto;
   background-color: $color-grey-light1;
-  max-width: min(80vw, 800px);
+  max-width: calc(min(80vw, 800px));
   padding: 1rem 1.5rem 1.5rem 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(black, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   font-size: 0.8rem;
 
   .popup-close-container {
@@ -330,6 +330,12 @@ header {
     padding: 0.5em 0.7em;
   }
 
+  .summary {
+    p:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
   hr {
     width: 100%;
     margin: 30px 0 20px 0;
@@ -347,17 +353,18 @@ header {
       gap: 15px;
       width: 100%;
       max-width: 100%;
-    
+
       form {
         gap: 12px;
         width: 100%;
-  
+
         input {
           @include popup-inputs();
         }
-  
+
         textarea {
           @include popup-inputs();
+
           min-width: 100%;
           max-width: 100%;
           min-height: 50px;
@@ -384,14 +391,11 @@ header {
         border-radius: 3px;
         padding: 0.9em 1.5em;
 
-        .comment-name {
-        }
-        
         .comment-date {
           font-size: 0.6rem;
           color: $color-white-dark;
         }
-  
+
         .comment-content {
           margin-top: 5px;
         }
@@ -488,7 +492,7 @@ footer {
 
     form {
       width: 90%;
-      max-width: min(90%, 500px);
+      max-width: calc(min(90%, 500px));
     }
   }
 }
