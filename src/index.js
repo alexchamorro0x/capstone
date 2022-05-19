@@ -281,7 +281,10 @@ document.addEventListener('click', (e) => {
 });
 
 // Mobile Menu Popup
+const dropdownMenuContainer = document.querySelector('#dropdown-menu-container');
 menuIcon.onclick = () => {
+  dropdownMenuContainer.innerHTML = '';
+
   const mobileMenu = document.createElement('div');
   mobileMenu.classList.add('mobileMenu');
   mobileMenu.style.display = 'block';
@@ -301,5 +304,13 @@ menuIcon.onclick = () => {
 
   mobileMenuContainer.append(cancel, ul);
   mobileMenu.append(mobileMenuContainer);
-  document.body.append(mobileMenu);
+  dropdownMenuContainer.append(mobileMenu);
 };
+
+// If clicked outside, close the dropdown menu
+document.addEventListener('click', (e) => {
+  const mobileMenu = document.querySelector('.mobileMenu');
+  if (mobileMenu && !e.target.closest('#menu-icon') && !e.target.closest('.mobileMenu')) {
+    mobileMenu.style.display = 'none';
+  }
+});
