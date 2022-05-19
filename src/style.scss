@@ -128,7 +128,9 @@ header {
     background-color: $color-grey-light2;
     height: 90vh;
     width: 90vw;
+
     @include margin-sides(auto);
+
     margin-top: 1rem;
 
     .cancel {
@@ -145,9 +147,16 @@ header {
       li {
         font-size: 1.5rem;
         color: $color-yellow;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+        margin-top: 1rem;
         margin-left: 1rem;
+        transition-duration: 500ms;
+        width: 100%;
+        padding: 1rem;
+
+        &:hover {
+          transform: scale(1.1);
+          background-color: $color-grey;
+        }
 
         a {
           color: $color-yellow;
@@ -482,7 +491,7 @@ footer {
   background-image: url('./assets/bg_texture.png');
   z-index: 2;
 
-  a {
+  .link {
     margin-left: 1rem;
     color: $color-yellow;
   }
@@ -526,7 +535,6 @@ footer {
       width: 20vw;
 
       .list {
-
         li {
           color: $color-yellow;
         }
