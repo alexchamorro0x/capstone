@@ -5,7 +5,7 @@
 
 ## *Microverse Second Capstone Project*
 
-> This educational project is to build our own web application based on an external API. We selected an API that provides data about a topic that we like and built the web app around it. The web app will have 2 or 3 user interfaces (depending on the size of our team).
+> This educational project is to build our own web application based on an external API. We selected an API that provides data about a topic that we like and built the web app around it. The web app will have 2 user interfaces.
 
 ## Learning Objectives 🔖
 - [x] Use JavaScript to make websites dynamic and build basic single page apps.
