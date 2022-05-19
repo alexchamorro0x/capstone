@@ -12,8 +12,15 @@ const header = document.querySelector('header');
 const searchInput = document.querySelector('#search-input');
 
 // Search Bar For Desktop
+const isDesktop = window.innerWidth > 768;
 window.onresize = () => {
-  window.location.reload();
+  if (isDesktop && window.innerWidth <= 768) {
+    window.location.reload();
+  }
+
+  if (!isDesktop && window.innerWidth > 768) {
+    window.location.reload();
+  }
 };
 
 if (window.innerWidth > 768) {
