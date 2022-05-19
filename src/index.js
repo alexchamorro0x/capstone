@@ -278,6 +278,10 @@ menuIcon.onclick = () => {
   const mobileMenu = document.createElement('div');
   mobileMenu.classList.add('mobileMenu');
   mobileMenu.style.display = 'block';
+
+  const mobileMenuContainer = document.createElement('div');
+  mobileMenuContainer.classList.add('mobileMenuContainer');
+
   const cancel = document.createElement('span');
   cancel.classList.add('material-icons-round', 'icons', 'cancel');
   cancel.textContent = 'cancel';
@@ -286,7 +290,9 @@ menuIcon.onclick = () => {
   };
   const ul = document.createElement('ul');
   ul.classList.add('list');
-  ul.innerHTML = '<li>Home</li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li>';
-  mobileMenu.append(cancel, ul);
+  ul.innerHTML = '<li><a href="https://mavericks-db.github.io/capstone02/dist/">Home</a></li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li><li><a href="https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li>';
+
+  mobileMenuContainer.append(cancel, ul);
+  mobileMenu.append(mobileMenuContainer);
   document.body.append(mobileMenu);
 };

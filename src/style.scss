@@ -113,36 +113,53 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: $color-grey-light1;
+  background-color: $color-grey-light2;
   height: 100vh;
   width: 100vw;
   z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
-  text-align: center;
+  text-align: left;
 
-  .cancel {
-    margin-top: 4rem;
-    font-size: 2rem;
-    margin-left: auto;
-  }
-
-  .list {
+  .mobileMenuContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-grey-light2;
+    height: 90vh;
+    width: 90vw;
     @include margin-sides(auto);
+    margin-top: 1rem;
 
-    li {
-      font-size: 1.5rem;
-      color: $color-yellow;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    .cancel {
+      margin-top: 3rem;
+      font-size: 2rem;
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+
+    .list {
+      margin-right: auto;
+      margin-left: 1rem;
+
+      li {
+        font-size: 1.5rem;
+        color: $color-yellow;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+
+        a {
+          color: $color-yellow;
+        }
+      }
     }
   }
 }
 
 h3 {
   font-size: 1rem;
-  text-align: center;
+  margin-left: 3rem;
 
   &:focus {
     text-decoration: underline;
@@ -463,6 +480,7 @@ footer {
   bottom: 0;
   background-color: $color-grey-light1;
   background-image: url('./assets/bg_texture.png');
+  z-index: 2;
 
   a {
     margin-left: 1rem;
@@ -493,10 +511,33 @@ footer {
     }
   }
 
+  // Mobile Menu
+  .mobileMenu {
+    height: 100vh;
+    width: 20vw;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: left;
+
+    .mobileMenuContainer {
+      height: 50vh;
+      width: 20vw;
+
+      .list {
+
+        li {
+          color: $color-yellow;
+        }
+      }
+    }
+  }
+
   h3 {
     margin-top: 1rem;
     font-size: 1.5rem;
-    margin-left: 2rem;
+    margin-left: 3rem;
     color: $color-white;
 
     &:hover {
