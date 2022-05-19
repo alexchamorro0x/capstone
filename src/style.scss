@@ -132,28 +132,22 @@ header {
     flex-direction: column;
     background-color: $color-grey-light2;
     height: 90vh;
-    width: 90vw;
-
-    @include margin-sides(auto);
-
-    margin-top: 1rem;
+    width: 100%;
+    padding: 100px 50px 0 40px;
 
     .cancel {
-      margin-top: 3rem;
       font-size: 2rem;
       margin-left: auto;
-      margin-right: 2rem;
+      cursor: pointer;
     }
 
     .list {
       margin-right: auto;
-      margin-left: 1rem;
 
       li {
         font-size: 1.5rem;
         color: $color-yellow;
         margin-top: 1rem;
-        margin-left: 1rem;
         transition-duration: 500ms;
         width: 100%;
         padding: 1rem;
@@ -530,7 +524,8 @@ footer {
   // Mobile Menu
   .mobileMenu {
     height: 100vh;
-    width: 20vw;
+    width: 40vw;
+    max-width: 400px;
     z-index: 1;
     position: fixed;
     top: 0;
@@ -539,7 +534,7 @@ footer {
 
     .mobileMenuContainer {
       height: 50vh;
-      width: 20vw;
+      width: 100%;
 
       .list {
         li {
