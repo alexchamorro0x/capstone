@@ -9,6 +9,7 @@ const searchBarContainer = document.querySelector('.search-bar');
 const searchCloseBtn = document.querySelector('#search-close-btn');
 const menuIcon = document.querySelector('#menu-icon');
 const header = document.querySelector('header');
+const searchInput = document.querySelector('#search-input');
 
 // Search Bar For Desktop
 window.onresize = () => {
@@ -119,32 +120,32 @@ const createElement = async (requestURL) => {
     });
 };
 
-const searchInput = document.querySelector('#search-input');
-
 // Search Event - Mobile Version
-searchIcon.onclick = () => {
-  searchBarContainer.classList.remove('hide');
-
-  // // Add event listener
-  searchCloseBtn.onclick = () => {
-    searchBarContainer.classList.add('hide');
-  };
-};
-
-// Enter Keyboard Support - Search Mobile
 if (window.innerWidth < 768) {
-  window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      if (!searchInput.value) {
-        window.onload();
-      }
-      query = searchInput.value;
-      searchInput.value = '';
+  searchIcon.onclick = () => {
+    searchBarContainer.classList.remove('hide');
+
+    // // Add event listener
+    searchCloseBtn.onclick = () => {
       searchBarContainer.classList.add('hide');
-      createElement(`${rootUrl}${query}&embed=episodes`);
-      updateLikes();
-    }
-  });
+    };
+  };
+
+  searchInput.oninput = () => {
+    window.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        if (!searchInput.value) {
+          return null;
+        }
+        searchBarContainer.classList.add('hide');
+        query = searchInput.value;
+        searchInput.value = '';
+        createElement(`${rootUrl}${query}&embed=episodes`);
+        updateLikes();
+      }
+      return null;
+    });
+  };
 }
 
 // Search Event - Desktop Version
@@ -154,28 +155,29 @@ if (window.innerWidth > 768) {
     if (searchInput.value) {
       query = searchInput.value;
       searchInput.value = '';
-    }
-    if (!searchInput.value) {
-      window.onload();
-    }
-    createElement(`${rootUrl}${query}&embed=episodes`);
-    updateLikes();
-  };
-}
-
-// Enter Keyboard Support - Search Desktop
-if (window.innerWidth > 768) {
-  window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      if (!searchInput.value) {
-        window.onload();
-      }
-      query = searchInput.value;
-      searchInput.value = '';
       createElement(`${rootUrl}${query}&embed=episodes`);
       updateLikes();
     }
-  });
+    if (!searchInput.value) {
+      return null;
+    }
+    return null;
+  };
+
+  searchInput.oninput = () => {
+    window.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        if (!searchInput.value) {
+          return null;
+        }
+        query = searchInput.value;
+        searchInput.value = '';
+        createElement(`${rootUrl}${query}&embed=episodes`);
+        updateLikes();
+      }
+      return null;
+    });
+  };
 }
 
 // Default Search On Page Load
