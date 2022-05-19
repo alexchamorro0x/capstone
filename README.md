@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 
-# API-BASED WEB APP
+# PRIME SHOWS HD
 
 ## *Microverse Second Capstone Project*
 
@@ -38,6 +38,7 @@
 - [x] Code Editor: VS Code
 
 ## Website Mockup 📱 💻 🖥️
+![app_screenshot](https://user-images.githubusercontent.com/98527559/169225295-f14dc1f2-0702-4c98-8d9d-4d5985aa71ad.png)
 
 
 ## Screenshots 📸
