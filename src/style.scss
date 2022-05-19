@@ -107,6 +107,39 @@ header {
   }
 }
 
+// Mobile Menu
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $color-grey-light1;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+
+  .cancel {
+    margin-top: 4rem;
+    font-size: 2rem;
+    margin-left: auto;
+  }
+
+  .list {
+    @include margin-sides(auto);
+
+    li {
+      font-size: 1.5rem;
+      color: $color-yellow;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 h3 {
   font-size: 1rem;
   text-align: center;

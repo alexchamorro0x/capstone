@@ -272,3 +272,21 @@ document.addEventListener('click', (e) => {
     clearPopups();
   }
 });
+
+// Mobile Menu Popup
+menuIcon.onclick = () => {
+  const mobileMenu = document.createElement('div');
+  mobileMenu.classList.add('mobileMenu');
+  mobileMenu.style.display = 'block';
+  const cancel = document.createElement('span');
+  cancel.classList.add('material-icons-round', 'icons', 'cancel');
+  cancel.textContent = 'cancel';
+  cancel.onclick = () => {
+    mobileMenu.style.display = 'none';
+  };
+  const ul = document.createElement('ul');
+  ul.classList.add('list');
+  ul.innerHTML = '<li>Home</li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li>';
+  mobileMenu.append(cancel, ul);
+  document.body.append(mobileMenu);
+};
