@@ -1,11 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 
-# API-BASED WEB APP
+# PRIME SHOWS HD
 
 ## *Microverse Second Capstone Project*
 
-> This educational project is to build our own web application based on an external API. We selected an API that provides data about a topic that we like and built the web app around it. The web app will have 2 or 3 user interfaces (depending on the size of our team).
+> This educational project is to build our own web application based on an external API. We selected an API that provides data about a topic that we like and built the web app around it. The web app will have 2 user interfaces.
 
 ## Learning Objectives 🔖
 - [x] Use JavaScript to make websites dynamic and build basic single page apps.
@@ -38,6 +38,7 @@
 - [x] Code Editor: VS Code
 
 ## Website Mockup 📱 💻 🖥️
+![app_screenshot](https://user-images.githubusercontent.com/98527559/169225295-f14dc1f2-0702-4c98-8d9d-4d5985aa71ad.png)
 
 
 ## Screenshots 📸

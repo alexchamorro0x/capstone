@@ -111,7 +111,8 @@ const getComments = async (_id) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "clearPopups": () => (/* binding */ clearPopups),
-/* harmony export */   "showPopup": () => (/* binding */ showPopup)
+/* harmony export */   "showPopup": () => (/* binding */ showPopup),
+/* harmony export */   "showPopupEpisodes": () => (/* binding */ showPopupEpisodes)
 /* harmony export */ });
 /* harmony import */ var _add_elem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-elem.js */ "./src/modules/add-elem.js");
 /* harmony import */ var _involvement_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./involvement.js */ "./src/modules/involvement.js");
@@ -236,6 +237,50 @@ const showPopup = (_showData, _domRect) => {
   };
 };
 
+const showPopupEpisodes = (_showData, _domRect) => {
+  // Clear all other pop-ups if any
+  clearPopups();
+  // Calculate y position
+  const posY = window.pageYOffset + _domRect.y - 50;
+
+  // DOM manipulations
+  const main = document.querySelector('main');
+  const popupContainer = (0,_add_elem_js__WEBPACK_IMPORTED_MODULE_0__["default"])('div', ['popup-container'], main);
+  popupContainer.style.top = `${posY}px`;
+
+  popupContainer.innerHTML = `
+    <div class="popup-close-container"></div>
+    <div class="flex-column">
+      <h2>${_showData.name}</h2>
+      <div class="sub-title flex-row">
+        <div class="flex-row">
+          <span class="material-icons-round icons">star</span>
+          <span class="rating">${_showData.rating.average}</span>
+          <span>/10</span>
+        </div>
+      </div>
+    </div>
+    <img class="popup-img" src="${_showData.image.original}" alt="show thumbnail">
+    <div class="genres flex-row"></div>
+    <div class="summary">${_showData.summary}</div>
+    <hr>
+    <div class="comments-container"></div>`;
+
+  // Generate comments
+  const commentsContainer = document.querySelector('.comments-container');
+  updateComments(_showData.id, commentsContainer);
+
+  // Close button event listener
+  const popupCloseContainer = document.querySelector('.popup-close-container');
+  const popupClose = (0,_add_elem_js__WEBPACK_IMPORTED_MODULE_0__["default"])('button', ['popup-close'], popupCloseContainer);
+  const closeIcon = (0,_add_elem_js__WEBPACK_IMPORTED_MODULE_0__["default"])('span', ['material-icons-round', 'icons'], popupClose);
+  closeIcon.textContent = 'close';
+
+  popupClose.onclick = () => {
+    popupContainer.remove();
+  };
+};
+
 
 
 
@@ -333,7 +378,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import addElem from './modules/add-elem.js';
 
 // Search button
 const searchIcon = document.querySelector('#search-btn');
@@ -341,8 +385,20 @@ const searchBarContainer = document.querySelector('.search-bar');
 const searchCloseBtn = document.querySelector('#search-close-btn');
 const menuIcon = document.querySelector('#menu-icon');
 const header = document.querySelector('header');
+const searchInput = document.querySelector('#search-input');
 
 // Search Bar For Desktop
+const isDesktop = window.innerWidth > 768;
+window.onresize = () => {
+  if (isDesktop && window.innerWidth <= 768) {
+    window.location.reload();
+  }
+
+  if (!isDesktop && window.innerWidth > 768) {
+    window.location.reload();
+  }
+};
+
 if (window.innerWidth > 768) {
   searchBarContainer.classList.remove('hide');
   menuIcon.classList.remove('hide');
@@ -396,131 +452,15 @@ const createElement = async (requestURL) => {
         const divImg = document.createElement('div');
         divImg.classList.add('cardImg');
         divImg.style.backgroundImage = `url(${el.image.original})`;
-        const h1 = document.createElement('h1');
-        h1.classList.add('cardName');
-        h1.textContent = `S${el.season}E${el.number} ${el.name}`;
+        const h2 = document.createElement('h2');
+        h2.classList.add('cardName');
+        h2.textContent = `S${el.season}E${el.number} ${el.name}`;
         const details = document.createElement('p');
         details.classList.add('cardDetails');
         details.innerHTML = `Plot Summary: <br>${el.summary}`;
-        const h2 = document.createElement('h2');
-        h2.classList.add('cardRuntime');
-        h2.textContent = `Runtime: ${el.runtime} mins Rating: ${el.rating.average}`;
-
-        const starContainer = document.createElement('div');
-        starContainer.classList.add('starContainer');
-
-        const starRate = document.createElement('span');
-        starRate.classList.add('material-icons-round');
-        starRate.classList.add('icons');
-        starRate.classList.add('starRate');
-        starRate.textContent = 'star_rate';
-
-        const starCount = document.createElement('span');
-        starCount.classList.add('starCount');
-        starCount.setAttribute('id', el.id);
-        starCount.textContent = '0';
-
-        const starBorder = document.createElement('span');
-        starBorder.classList.add('material-icons-round');
-        starBorder.classList.add('icons');
-        starBorder.classList.add('starBorder');
-        starBorder.textContent = 'star_border';
-        starBorder.setAttribute('id', el.id);
-
-        // Like Event
-        starBorder.addEventListener('click', () => {
-          (0,_modules_involvement_js__WEBPACK_IMPORTED_MODULE_2__.postLike)(el.show.id);
-          starBorder.classList.toggle('liked');
-          starCount.setAttribute('disabled', true);
-          setTimeout(updateLikes, 1000);
-        });
-
-        const cBtn = document.createElement('button');
-        cBtn.classList.add('commentBtn');
-        cBtn.textContent = 'Comments';
-        starContainer.append(starRate, starCount, starBorder);
-        div.append(divImg, starContainer, h1, h2, details, cBtn);
-        cards.append(div);
-        searchCount += 1;
-        searchResults.textContent = `Search Results (${searchCount})`;
-      });
-    });
-};
-
-const searchInput = document.querySelector('#search-input');
-
-// Search Event - Mobile Version
-searchIcon.onclick = () => {
-  searchBarContainer.classList.remove('hide');
-
-  // // Add event listener
-  searchCloseBtn.onclick = () => {
-    searchBarContainer.classList.add('hide');
-  };
-};
-
-// Enter Keyboard Support - Search Mobile
-if (window.innerWidth < 768) {
-  window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      if (!searchInput.value) {
-        window.onload();
-      }
-      query = searchInput.value;
-      searchInput.value = '';
-      searchBarContainer.classList.add('hide');
-      createElement(`${rootUrl}${query}&embed=episodes`);
-      updateLikes();
-    }
-  });
-}
-
-// Search Event - Desktop Version
-if (window.innerWidth > 768) {
-  const searchIconDesktopBtn = document.querySelector('.searchIconDesktopBtn');
-  searchIconDesktopBtn.onclick = () => {
-    if (searchInput.value) {
-      query = searchInput.value;
-      searchInput.value = '';
-    }
-    if (!searchInput.value) {
-      window.onload();
-    }
-    createElement(`${rootUrl}${query}&embed=episodes`);
-    updateLikes();
-  };
-}
-
-// Enter Keyboard Support - Search Desktop
-if (window.innerWidth > 768) {
-  window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      if (!searchInput.value) {
-        window.onload();
-      }
-      query = searchInput.value;
-      searchInput.value = '';
-      createElement(`${rootUrl}${query}&embed=episodes`);
-      updateLikes();
-    }
-  });
-}
-
-// Default Search On Page Load
-const createElementForShows = async (requestURL) => {
-  cards.innerHTML = '';
-  await (0,_modules_tvmaze_js__WEBPACK_IMPORTED_MODULE_1__["default"])(requestURL)
-    .then((data) => {
-      let searchCount = 0;
-      data.forEach((el) => {
-        const div = document.createElement('div');
-        div.classList.add('cardItem');
-        const divImg = document.createElement('div');
-        divImg.classList.add('cardImg');
-        divImg.style.backgroundImage = `url(${el.image.original})`;
-        const h1 = document.createElement('h1');
-        h1.classList.add('cardName');
-        h1.textContent = el.name;
+        const h3 = document.createElement('h3');
+        h3.classList.add('cardRuntime');
+        h3.textContent = `Runtime: ${el.runtime} mins Rating: ${el.rating.average}`;
 
         const starContainer = document.createElement('div');
         starContainer.classList.add('starContainer');
@@ -555,7 +495,7 @@ const createElementForShows = async (requestURL) => {
         cBtn.classList.add('commentBtn');
         cBtn.textContent = 'Comments';
         starContainer.append(starRate, starCount, starBorder);
-        div.append(divImg, starContainer, h1, cBtn);
+        div.append(divImg, starContainer, h2, h3, details, cBtn);
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;
@@ -564,7 +504,131 @@ const createElementForShows = async (requestURL) => {
         const showData = el;
         div.addEventListener('click', (e) => {
           if (!e.target.matches('.starBorder')) {
-            // console.log(e.target);
+            (0,_modules_popup_js__WEBPACK_IMPORTED_MODULE_3__.showPopupEpisodes)(showData, e.target.closest('.cardItem').getBoundingClientRect());
+          }
+        });
+      });
+    });
+};
+
+// Search Event - Mobile Version
+if (window.innerWidth < 768) {
+  searchIcon.onclick = () => {
+    searchBarContainer.classList.remove('hide');
+
+    // // Add event listener
+    searchCloseBtn.onclick = () => {
+      searchBarContainer.classList.add('hide');
+    };
+  };
+
+  searchInput.oninput = () => {
+    window.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        if (!searchInput.value) {
+          return null;
+        }
+        searchBarContainer.classList.add('hide');
+        query = searchInput.value;
+        searchInput.value = '';
+        createElement(`${rootUrl}${query}&embed=episodes`);
+        updateLikes();
+      }
+      return null;
+    });
+  };
+}
+
+// Search Event - Desktop Version
+if (window.innerWidth > 768) {
+  const searchIconDesktopBtn = document.querySelector('.searchIconDesktopBtn');
+  searchIconDesktopBtn.onclick = () => {
+    if (searchInput.value) {
+      query = searchInput.value;
+      searchInput.value = '';
+      createElement(`${rootUrl}${query}&embed=episodes`);
+      updateLikes();
+    }
+    if (!searchInput.value) {
+      return null;
+    }
+    return null;
+  };
+
+  searchInput.oninput = () => {
+    window.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        if (!searchInput.value) {
+          return null;
+        }
+        query = searchInput.value;
+        searchInput.value = '';
+        createElement(`${rootUrl}${query}&embed=episodes`);
+        updateLikes();
+      }
+      return null;
+    });
+  };
+}
+
+// Default Search On Page Load
+const createElementForShows = async (requestURL) => {
+  cards.innerHTML = '';
+  await (0,_modules_tvmaze_js__WEBPACK_IMPORTED_MODULE_1__["default"])(requestURL)
+    .then((data) => {
+      let searchCount = 0;
+      data.forEach((el) => {
+        const div = document.createElement('div');
+        div.classList.add('cardItem');
+        const divImg = document.createElement('div');
+        divImg.classList.add('cardImg');
+        divImg.style.backgroundImage = `url(${el.image.original})`;
+        const h2 = document.createElement('h2');
+        h2.classList.add('cardName');
+        h2.textContent = el.name;
+
+        const starContainer = document.createElement('div');
+        starContainer.classList.add('starContainer');
+
+        const starRate = document.createElement('span');
+        starRate.classList.add('material-icons-round');
+        starRate.classList.add('icons');
+        starRate.classList.add('starRate');
+        starRate.textContent = 'star_rate';
+
+        const starCount = document.createElement('span');
+        starCount.classList.add('starCount');
+        starCount.setAttribute('id', el.id);
+        starCount.textContent = '0';
+
+        const starBorder = document.createElement('span');
+        starBorder.classList.add('material-icons-round');
+        starBorder.classList.add('icons');
+        starBorder.classList.add('starBorder');
+        starBorder.textContent = 'star_border';
+        starBorder.setAttribute('id', el.id);
+
+        // Like Event
+        starBorder.addEventListener('click', () => {
+          (0,_modules_involvement_js__WEBPACK_IMPORTED_MODULE_2__.postLike)(el.id);
+          starBorder.classList.toggle('liked');
+          starCount.setAttribute('disabled', true);
+          setTimeout(updateLikes, 1000);
+        });
+
+        const cBtn = document.createElement('button');
+        cBtn.classList.add('commentBtn');
+        cBtn.textContent = 'Comments';
+        starContainer.append(starRate, starCount, starBorder);
+        div.append(divImg, starContainer, h2, cBtn);
+        cards.append(div);
+        searchCount += 1;
+        searchResults.textContent = `Search Results (${searchCount})`;
+
+        // Pop-up trigger event
+        const showData = el;
+        div.addEventListener('click', (e) => {
+          if (!e.target.matches('.starBorder')) {
             (0,_modules_popup_js__WEBPACK_IMPORTED_MODULE_3__.showPopup)(showData, e.target.closest('.cardItem').getBoundingClientRect());
           }
         });
@@ -589,6 +653,41 @@ h1.addEventListener('click', () => {
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.cardItem') && !e.target.closest('.popup-container')) {
     (0,_modules_popup_js__WEBPACK_IMPORTED_MODULE_3__.clearPopups)();
+  }
+});
+
+// Mobile Menu Popup
+const dropdownMenuContainer = document.querySelector('#dropdown-menu-container');
+menuIcon.onclick = () => {
+  dropdownMenuContainer.innerHTML = '';
+
+  const mobileMenu = document.createElement('div');
+  mobileMenu.classList.add('mobileMenu');
+  mobileMenu.style.display = 'block';
+
+  const mobileMenuContainer = document.createElement('div');
+  mobileMenuContainer.classList.add('mobileMenuContainer');
+
+  const cancel = document.createElement('span');
+  cancel.classList.add('material-icons-round', 'icons', 'cancel');
+  cancel.textContent = 'cancel';
+  cancel.onclick = () => {
+    mobileMenu.style.display = 'none';
+  };
+  const ul = document.createElement('ul');
+  ul.classList.add('list');
+  ul.innerHTML = '<li><a href="https://mavericks-db.github.io/capstone02/dist/">Home</a></li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li><li><a href="https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li><li><a href="https://github.com/mavericks-db/capstone02">Source Code</a></li>';
+
+  mobileMenuContainer.append(cancel, ul);
+  mobileMenu.append(mobileMenuContainer);
+  dropdownMenuContainer.append(mobileMenu);
+};
+
+// If clicked outside, close the dropdown menu
+document.addEventListener('click', (e) => {
+  const mobileMenu = document.querySelector('.mobileMenu');
+  if (mobileMenu && !e.target.closest('#menu-icon') && !e.target.closest('.mobileMenu')) {
+    mobileMenu.style.display = 'none';
   }
 });
 
