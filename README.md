@@ -25,7 +25,7 @@
 - [x] Perform a code review for a team member.
 
 ## Project Documentation 📄
-- [x] Here is the loom video [link]()👈
+- [x] Here is the loom video [link](https://drive.google.com/file/d/13n7Y4-65xZws_hqxmrLcgiMPkUYh7zL9/view?usp=sharing)👈
 
 ## Built With 🛠️
 
