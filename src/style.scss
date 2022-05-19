@@ -83,6 +83,7 @@ header {
   background-color: $color-grey;
   background-image: url('./assets/bg_texture.png');
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
