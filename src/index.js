@@ -1,7 +1,7 @@
 import './style.scss';
 import getData from './modules/tvmaze.js';
 import { getLikes, postLike } from './modules/involvement.js';
-import { showPopup, clearPopups } from './modules/popup.js';
+import { showPopup, clearPopups, showPopupEpisodes } from './modules/popup.js';
 
 // Search button
 const searchIcon = document.querySelector('#search-btn');
@@ -116,6 +116,15 @@ const createElement = async (requestURL) => {
         cards.append(div);
         searchCount += 1;
         searchResults.textContent = `Search Results (${searchCount})`;
+
+        // Pop-up trigger event
+        const showData = el;
+        div.addEventListener('click', (e) => {
+          if (!e.target.matches('.starBorder')) {
+            // console.log(showData);
+            showPopupEpisodes(showData, e.target.closest('.cardItem').getBoundingClientRect());
+          }
+        });
       });
     });
 };
