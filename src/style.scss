@@ -173,6 +173,7 @@ header {
 h3 {
   font-size: 1rem;
   margin-left: 3rem;
+  margin-top: 4rem;
 
   &:focus {
     text-decoration: underline;
@@ -209,7 +210,7 @@ h3 {
 
 // Cards Section
 .cards {
-  margin-top: 4rem;
+  margin-top: 1rem;
   padding-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
@@ -547,7 +548,7 @@ footer {
   }
 
   h3 {
-    margin-top: 1rem;
+    margin-top: 5rem;
     font-size: 1.5rem;
     margin-left: 3rem;
     color: $color-white;
