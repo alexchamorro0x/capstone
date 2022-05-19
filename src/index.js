@@ -121,7 +121,6 @@ const createElement = async (requestURL) => {
         const showData = el;
         div.addEventListener('click', (e) => {
           if (!e.target.matches('.starBorder')) {
-            // console.log(showData);
             showPopupEpisodes(showData, e.target.closest('.cardItem').getBoundingClientRect());
           }
         });
@@ -247,7 +246,6 @@ const createElementForShows = async (requestURL) => {
         const showData = el;
         div.addEventListener('click', (e) => {
           if (!e.target.matches('.starBorder')) {
-            // console.log(e.target);
             showPopup(showData, e.target.closest('.cardItem').getBoundingClientRect());
           }
         });
