@@ -25,7 +25,7 @@
 - [x] Perform a code review for a team member.
 
 ## Project Documentation 📄
-- [x] Here is the loom video [link](https://drive.google.com/file/d/13n7Y4-65xZws_hqxmrLcgiMPkUYh7zL9/view?usp=sharing)👈
+- [x] Here is the presentation video [link](https://drive.google.com/file/d/1Y0g36qCEXfqTaaSVR7acBoWULyKo-91x/view?usp=sharing)👈
 
 ## Built With 🛠️
 
@@ -38,7 +38,7 @@
 - [x] Code Editor: VS Code
 
 ## Website Mockup 📱 💻 🖥️
-![app_screenshot](https://user-images.githubusercontent.com/98527559/169225295-f14dc1f2-0702-4c98-8d9d-4d5985aa71ad.png)
+![website_mockup](https://user-images.githubusercontent.com/98527559/169324147-2d46aaf5-ed06-4e70-a8c3-acbcc8c28d63.png)
 
 
 ## Screenshots 📸
