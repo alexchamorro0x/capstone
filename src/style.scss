@@ -82,6 +82,10 @@ header {
   padding: 0.5rem;
   background-color: $color-grey;
   background-image: url('./assets/bg_texture.png');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   h1 {
     font-size: 1.25rem;
@@ -205,7 +209,7 @@ h3 {
 
 // Cards Section
 .cards {
-  margin-top: 1rem;
+  margin-top: 4rem;
   padding-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
