@@ -300,7 +300,7 @@ menuIcon.onclick = () => {
   };
   const ul = document.createElement('ul');
   ul.classList.add('list');
-  ul.innerHTML = '<li><a href="https://mavericks-db.github.io/capstone02/dist/">Home</a></li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li><li><a href="https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li><li><a href="https://github.com/mavericks-db/capstone02">Source Code</a></li>';
+  ul.innerHTML = '<li><a href="https://alexchamorro0x.github.io/capstone/dist/">Home</a></li><li><a href="https://www.tvmaze.com/api">TvMaze API</a></li><li><a href="https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li><li><a href="https://github.com/alexchamorro0x/capstone">Source Code</a></li>';
 
   mobileMenuContainer.append(cancel, ul);
   mobileMenu.append(mobileMenuContainer);

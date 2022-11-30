@@ -3,7 +3,7 @@
 
 # PRIME SHOWS HD
 
-## *Microverse Second Capstone Project*
+## *Microverse Capstone Project*
 
 > This educational project is to build our own web application based on an external API. We selected an API that provides data about a topic that we like and built the web app around it. The web app will have 2 user interfaces.
 
@@ -24,9 +24,6 @@
 - [x] Make JavaScript code synchronous.
 - [x] Perform a code review for a team member.
 
-## Project Documentation 📄
-- [x] Here is the presentation video [link](https://drive.google.com/file/d/1Y0g36qCEXfqTaaSVR7acBoWULyKo-91x/view?usp=sharing)👈
-
 ## Built With 🛠️
 
 - [x] Languages: HTML, Sass and JavaScript
@@ -38,7 +35,7 @@
 - [x] Code Editor: VS Code
 
 ## Website Mockup 📱 💻 🖥️
-![website_mockup](https://user-images.githubusercontent.com/98527559/169324147-2d46aaf5-ed06-4e70-a8c3-acbcc8c28d63.png)
+![website_mockup](./website_screenshot.png)
 
 
 ## Screenshots 📸
@@ -46,7 +43,7 @@ Screenshots can be found in the repository.
 
 ## Live Demo 🔗
 
-Check the live demo [here](https://mavericks-db.github.io/capstone02/dist)👈
+Check the live demo [here](https://alexchamorro0x.github.io/capstone/dist)👈
 
 ## Getting Started
 
@@ -76,7 +73,7 @@ Clone the repository using the GitHub link provided below.
 In the terminal, go to your file directory and run this command.
 
 ```
-$ git clone git@github.com:mavericks-db/capstone02.git
+$ git clone git@github.com:alexchamorro0x/capstone.git
 ```
 
 ### Usage
@@ -85,7 +82,7 @@ Kindly modify the files as needed.
 
 ### Run tests
 
-To check for linters, use the files provided by [Microverse](https://github.com/microverseinc/linters-config). A GitHub action is also set to run during pull request.
+To check for linters, use the files provided by [Microverse](https://github.com/alexchamorro0x/linters-config). A GitHub action is also set to run during pull request.
 ```
 $ npm install
 ```
@@ -95,36 +92,11 @@ $ npm install
 This app is deployed in the GitHub Pages for easy viewing upon merged on the main branch.
 Please find the link in the Live Demo section.
 
-
-## Authors
-
-👤 **Mavericks Balitaan** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
-
-- GitHub: [![GitHub Badge](https://img.shields.io/badge/-mavericks--db-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/mavericks-db)
-
-- Twitter: [![Twitter Badge](https://img.shields.io/badge/-mavericks__db-white?logo=Twitter&logoColor=1DA1F2&style=plastic)](https://twitter.com/mavericks_db)
-
-- Facebook: [![Facebook Badge](https://img.shields.io/badge/-mavericksdb-white?logo=Facebook&logoColor=1877F2&style=plastic)](https://www.facebook.com/mavericksdb/)
-
-- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-mavericks--db-white?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://www.linkedin.com/in/mavericks-db/)
-
-- Gmail: [![Gmail Badge](https://img.shields.io/badge/-@balitaanmavericks-white?logo=Gmail&logoColor=EA4335&style=plastic)](mailto:balitaanmavericks@gmail.com)
-
-👤 **Jauhari Alafi** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
-
-- GitHub: [![GitHub Badge](https://img.shields.io/badge/-JauJau088-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/JauJau088)
-
-- Twitter: [![Twitter Badge](https://img.shields.io/badge/-jaujauj-white?logo=Twitter&logoColor=1DA1F2&style=plastic)](https://twitter.com/jaujauj)
-
-- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-jauhari--alafi-white?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://www.linkedin.com/in/jauhari-alafi/)
-
-- Gmail: [![Gmail Badge](https://img.shields.io/badge/-@jauhari.alafi-white?logo=Gmail&logoColor=EA4335&style=plastic)](mailto:jauhari.alafi@gmail.com)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/mavericks-db/capstone02/issues).
+Feel free to check the [issues page](https://github.com/alexchamorro0x/capstone/issues).
 
 ## Show your support
 
