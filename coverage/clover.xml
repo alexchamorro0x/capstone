@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652963515645" clover="3.2.0">
-  <project timestamp="1652963515645" name="All files">
+<coverage generated="1669772401707" clover="3.2.0">
+  <project timestamp="1669772401707" name="All files">
     <metrics statements="86" coveredstatements="53" conditionals="8" coveredconditionals="4" methods="18" coveredmethods="7" elements="112" coveredelements="64" complexity="0" loc="86" ncloc="86" packages="2" files="4" classes="4"/>
     <package name="src.modules">
       <metrics statements="81" coveredstatements="48" conditionals="8" coveredconditionals="4" methods="17" coveredmethods="6"/>
-      <file name="add-elem.js" path="/Users/mavericks/repos/capstone02/src/modules/add-elem.js">
+      <file name="add-elem.js" path="/home/batman/Documents/WorkSpaces/Test/Alex/capstone02/src/modules/add-elem.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
@@ -13,7 +13,7 @@
         <line num="8" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
       </file>
-      <file name="involvement.js" path="/Users/mavericks/repos/capstone02/src/modules/involvement.js">
+      <file name="involvement.js" path="/home/batman/Documents/WorkSpaces/Test/Alex/capstone02/src/modules/involvement.js">
         <metrics statements="18" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -34,7 +34,7 @@
         <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
       </file>
-      <file name="popup.js" path="/Users/mavericks/repos/capstone02/src/modules/popup.js">
+      <file name="popup.js" path="/home/batman/Documents/WorkSpaces/Test/Alex/capstone02/src/modules/popup.js">
         <metrics statements="57" coveredstatements="36" conditionals="6" coveredconditionals="3" methods="11" coveredmethods="4"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -97,7 +97,7 @@
     </package>
     <package name="test">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="countFunction.js" path="/Users/mavericks/repos/capstone02/test/countFunction.js">
+      <file name="countFunction.js" path="/home/batman/Documents/WorkSpaces/Test/Alex/capstone02/test/countFunction.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
