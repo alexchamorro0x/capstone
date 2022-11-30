@@ -16,7 +16,9 @@
     "url": "git+https://github.com/alexchamorro0x/capstone.git"
   },
   "keywords": [],
-  "authors": ["Alex Chamorro"],
+  "authors": [
+    "Alex Chamorro"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexchamorro0x/capstone/issues"

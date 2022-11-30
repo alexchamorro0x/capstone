@@ -43,7 +43,7 @@ Screenshots can be found in the repository.
 
 ## Live Demo 🔗
 
-Check the live demo [here](https://alexchamorro0x.github.io/capstone/dist)👈
+Check the live demo [here](https://alexchamorro0x.github.io/capstone/)👈
 
 ## Getting Started
 
